@@ -1,0 +1,20 @@
+{
+    "name": "roseblade/quickfile-php-sdk",
+    "description": "PHP SDK for QuickFile Accounting Software JSON API",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "~6.0",
+        "php": ">=5.5.0"
+    },
+    "authors": [
+        {
+            "name": "Roseblade Media",
+            "email": "hello@roseblade.media"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "QuickFile\\": "src/"
+        }
+    }
+}
