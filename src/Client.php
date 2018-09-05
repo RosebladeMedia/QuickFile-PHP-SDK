@@ -51,7 +51,7 @@ class Client
     /**
      * @return  int                 Returns count of clients deleted
      */
-    public static function delete($idArray)
+    public static function delete($output)
     {
         // Send request
         $returned = \QuickFile\Request::_sendData($output, '/client/delete');
