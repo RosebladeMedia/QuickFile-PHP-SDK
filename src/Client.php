@@ -45,7 +45,7 @@ class Client
     {
         // Send request
         $returned = \QuickFile\Request::_sendData($output, '/client/update');
-        return $output['ClientDetails']['ClientID'];
+        return $returned->Client_Update->Body;;
     }
 
     /**
@@ -55,6 +55,6 @@ class Client
     {
         // Send request
         $returned = \QuickFile\Request::_sendData($output, '/client/delete');
-        return $returned->Client_Delete->Body->ClientDetailsDeleted;
+        return $returned->Client_Delete->Body;
     }
 }
