@@ -29,7 +29,7 @@ class QuickFile
     // @var string API version
     public static $apiVersion           = "1_2";
 
-    const VERSION                       = "1.0.1 BETA";
+    const VERSION                       = "1.1.3beta";
 
     /**
      * @param   int     $accountNumber QuickFile account number
