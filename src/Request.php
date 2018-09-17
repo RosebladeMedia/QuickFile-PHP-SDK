@@ -42,6 +42,17 @@ class Request
     }
 
     /**
+     * @param string            Endpoint for the command
+     * @param string            Data to send
+     * 
+     * @return object|boolean   Data returned from API, or false on error
+     */
+    public static function sendToEndPoint($endpoint, $data)
+    {
+        return $this->_sendData($endpoint, $data);
+    }
+
+    /**
      * @return boolean Check if all details needed are present
      */
     private static function _detailCheck()
