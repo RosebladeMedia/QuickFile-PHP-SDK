@@ -1,5 +1,9 @@
 ## Changelog
 
+### v1.1.5beta 2018-09-17
+* Added generic endpoint for un-supported API commands
+* Updated composer.json
+
 ### v1.1.3beta 2018-09-06
 * Fixed returned variables with client_update and client_delete
 * Added support for [supplier](https://api.quickfile.co.uk/method/supplier) methods
