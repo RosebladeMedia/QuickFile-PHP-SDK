@@ -49,7 +49,7 @@ class Request
      */
     public static function sendToEndPoint($endpoint, $data)
     {
-        return $this->_sendData($endpoint, $data);
+        return self::_sendData($endpoint, $data);
     }
 
     /**
