@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.1.6beta 2018-11-27
+* Switched variables in sendToEndPoint
+
 ### v1.1.5beta 2018-09-17
 * Added generic endpoint for un-supported API commands
 * Updated composer.json
