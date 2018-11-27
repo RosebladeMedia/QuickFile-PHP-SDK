@@ -49,7 +49,7 @@ class Request
      */
     public static function sendToEndPoint($endpoint, $data)
     {
-        return self::_sendData($endpoint, $data);
+        return self::_sendData($data, $endpoint);
     }
 
     /**
@@ -162,10 +162,5 @@ class Request
         {
             throw new \Exception($e->getMessage());
         }
-    }
-
-    private function _sortErrors($code)
-    {
-
     }
 }
