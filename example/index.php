@@ -47,7 +47,11 @@ try
     foreach($results->Record as $row)
     {
         echo $row->CompanyName." (ID: ".$row->ClientID.") \r\n";
-    }
+	}
+	
+	// You can also view the raw request and response for debugging, if needed
+	var_dump(\QuickFile\Request::getLastRequest());
+	var_dump(\QuickFile\Request::getLastResponse());
 }
 catch(Exception $e)
 {
