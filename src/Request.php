@@ -8,38 +8,76 @@ namespace QuickFile;
  */
 class Request
 {
-    // @var string Last request
-    private static $lastRequest;
+    /**
+	 * @var string Last request
+	 */
+    private static $_lastRequest;
 
-    // @var string Last response
-    private static $lastResponse;
+    /**
+	 * @var string Last response
+	 */
+    private static $_lastResponse;
 
-    // @var array List of errors from last response (if applicable)
-    private static $errorList;
+    /**
+	 * @var array List of errors from last response (if applicable)
+	 */
+    private static $_errorList	= [];
 
     /**
      * @return string Last recorded response
      */
     public static function getLastRequest()
     {
-        return self::$lastRequest;
-    }
+        return self::$_lastRequest;
+	}
+	
+	/**
+	 * @param string 		Data to set
+	 */
+	public static function setLastRequest($request)
+	{
+		self::$_lastRequest 	= $request;
+	}
 
     /**
      * @return string Last recorded response
      */
     public static function getLastResponse()
     {
-        return self::$lastResponse;
-    }
+        return self::$_lastResponse;
+	}
+	
+	/**
+	 * @param string 		Data to set
+	 */
+	public static function setLastResponse($response)
+	{
+		self::$_lastResponse 	= $response;
+	}
 
     /**
      * @return array Last recorded response
      */
     public static function getErrors()
     {
-        return self::$errorList;
-    }
+        return self::$_errorList;
+	}
+	
+	/**
+	 * @param array|string 		Error to record
+	 */
+	public static function setErrors($error)
+	{
+		/** If it's an array, merge it with the one that exists */
+		if(is_array($error))
+		{
+			self::$_errorList 	= array_merge(self::$_errorList, $error);
+		}
+		else
+		{
+			self::$_errorList[] = $error;
+		}
+	}
 
     /**
      * @param string            Endpoint for the command
@@ -79,15 +117,15 @@ class Request
             $submissionCode = self::_getSubmissionCode();
 
             // Build array
-            $output = array(
+            $output = [
                 'MessageType'       => 'Request',
                 'SubmissionNumber'  => $submissionCode,
-                'Authentication'    => array(
+                'Authentication'    => [
                     'AccNumber'         => \QuickFile\QuickFile::getaccountNumber(),
                     'MD5Value'          => md5(\QuickFile\QuickFile::getAccountNumber() . \QuickFile\QuickFile::getAPIKey() . $submissionCode),
                     'ApplicationID'     => \QuickFile\QuickFile::getApplicationID()
-                )
-            );
+				]
+			];
 
             return $output;
         }
@@ -121,12 +159,12 @@ class Request
         //$endPoint = \QuickFile\QuickFile::$endPoint . $endPoint;
 
         // Sort out the data
-        $output     = array(
-            'payload' => array(
+        $output     = [
+            'payload' => [
                 'Header'    => self::_jsonHeader(),
                 'Body'      => $data
-            )
-        );
+			]
+		];
 
         try {
             // Setup Guzzle and the data
@@ -140,21 +178,21 @@ class Request
             $httpCode               = $response->getStatusCode();
 
             // Record the data for analysis (if required)
-            self::$lastRequest      = $output;
-            self::$lastResponse     = $response->getBody();
+            self::setLastRequest($output);
+            self::setLastResponse((string) $response->getBody());
 
             // Check for errors
             if($httpCode != 200)
             {
-                $decoded            = json_decode(self::$lastResponse);
-                self::$errorList    = (array)$decoded->Errors->Error;
+                $decoded	= json_decode(self::$_lastResponse);
+                self::setErrors((array)$decoded->Errors->Error);
 
                 throw new \Exception("HTTP Error ".$httpCode." returned by QuickFile. See error list for details");
             }
             else
             {
                 // Send back
-                $decoded            = json_decode(self::$lastResponse);
+                $decoded            = json_decode(self::$_lastResponse);
                 return $decoded;
             }
         }
