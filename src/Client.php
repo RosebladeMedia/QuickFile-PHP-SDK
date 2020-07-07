@@ -56,5 +56,25 @@ class Client
         // Send request
         $returned = \QuickFile\Request::_sendData($output, '/client/delete');
         return $returned->Client_Delete->Body;
+	}
+	
+	/**
+     * @return  string|\Exception	Returns the GoCardless bill ID
+     */
+    public static function newDirectDebitCollection($output)
+    {
+        // Send request
+		$returned 	= \QuickFile\Request::_sendData($output, '/client/newdirectdebitcollection');
+		
+		$body 		= $returned->Client_NewDirectDebitCollection->Body;
+		
+		/** Was an error returned? */
+		if(!empty($body->Error))
+		{
+			\QuickFile\Request::setError($body->Error);
+			throw new \Exception("An error was returned by QuickFile. Please see error list for details.");
+		}
+
+        return $body->GoCardlessBillID;
     }
 }

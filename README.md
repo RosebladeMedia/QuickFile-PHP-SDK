@@ -7,7 +7,8 @@ Used to connect to QuickFile Cloud Accounting Software API.
 ## Requirements
 
 * PHP 5.5.0 and later
-* Guzzle HTTP
+* Guzzle HTTP 7.0 and later
+* ext-json
 
 ## Composer
 
