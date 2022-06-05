@@ -106,6 +106,12 @@ newDirectDebitCollection | [Link](https://api.quickfile.co.uk/d/v1_2/Client_NewD
 search | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Search)
 update | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Update)
 
+#### Document
+
+Function | API Docs
+--|--
+upload | [Link](https://api.quickfile.co.uk/d/v1_2/Document_Upload)
+
 ### Is this library supported by QuickFile?
 
 No, this is an unofficial library
