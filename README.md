@@ -155,6 +155,16 @@ Function | API Docs
 search | [Link](https://api.quickfile.co.uk/d/v1_2/Ledgers_Search)
 getNominalLedgers | [Link](https://api.quickfile.co.uk/d/v1_2/Ledgers_GetNominalLedgers)
 
+#### Payment
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_Get)
+getPayMethods | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_GetPayMethods)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_Search)
+
 ### Is this library supported by QuickFile?
 
 No, this is an unofficial library
