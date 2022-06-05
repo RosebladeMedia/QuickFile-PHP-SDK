@@ -200,6 +200,14 @@ delete | [Link](https://api.quickfile.co.uk/d/v1_2/Supplier_Delete)
 get | [Link](https://api.quickfile.co.uk/d/v1_2/Supplier_Get)
 search | [Link](https://api.quickfile.co.uk/d/v1_2/Supplier_Search)
 
+#### System
+
+Function | API Docs
+--|--
+createNote | [Link](https://api.quickfile.co.uk/d/v1_2/System_CreateNote)
+searchEvents | [Link](https://api.quickfile.co.uk/d/v1_2/System_SearchEvents)
+getAccountDetails | [Link](https://api.quickfile.co.uk/d/v1_2/System_GetAccountDetails)
+
 ### Is this library supported by QuickFile?
 
 No, this is an unofficial library
