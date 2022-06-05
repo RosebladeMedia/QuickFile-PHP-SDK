@@ -165,6 +165,14 @@ get | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_Get)
 getPayMethods | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_GetPayMethods)
 search | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_Search)
 
+#### Project
+
+Function | API Docs
+--|--
+tagCreate | [Link](https://api.quickfile.co.uk/d/v1_2/Project_TagCreate)
+tagDelete | [Link](https://api.quickfile.co.uk/d/v1_2/Project_TagDelete)
+tagSearch | [Link](https://api.quickfile.co.uk/d/v1_2/Project_TagSearch)
+
 #### Purchase
 
 Function | API Docs
