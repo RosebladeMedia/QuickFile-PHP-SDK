@@ -81,7 +81,17 @@ All header information is populated for you. You need to supply everything as pa
 
 It uses 1.2 of the JSON API
 
-### What methods does it support?
+### What methods/endpoints are supported?
+
+#### Bank
+
+Function | API Docs
+--|--
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Bank_Search)
+createAccount | [Link](https://api.quickfile.co.uk/d/v1_2/Bank_CreateAccount)
+createTransaction | [Link](https://api.quickfile.co.uk/d/v1_2/Bank_CreateTransaction)
+getAccounts | [Link](https://api.quickfile.co.uk/d/v1_2/Bank_GetAccounts)
+getAccountBalances | [Link](https://api.quickfile.co.uk/d/v1_2/Bank_GetAccountBalances)
 
 #### Client
 
@@ -102,8 +112,8 @@ No, this is an unofficial library
 
 ### How is the data sent to QuickFile?
 
-A. The data is always sent using HTTPS, using the Guzzle HTTP library. Guzzle will use cURL, but it's not required. Please see the [Guzzle Website](http://docs.guzzlephp.org/en/latest/overview.html) for information.
+The data is always sent using HTTPS, using the Guzzle HTTP library. Guzzle will use cURL, but it's not required. Please see the [Guzzle Website](http://docs.guzzlephp.org/en/latest/overview.html) for information.
 
 ### I've found a bug, where do I report it?
 
-A. If it's a security bug relating to the API, you can post it to the [QuickFile forum](https://community.quickfile.co.uk). If it's a bug with the library, please open an issue. If it's a security issue, please contact us through [our website](https://roseblade.media) before posting it publicly.
+If it's a security bug relating to the API, you can post it to the [QuickFile forum](https://community.quickfile.co.uk). If it's a bug with the library, please open an issue. If it's a security issue, please contact us through [our website](https://roseblade.media) before posting it publicly.
