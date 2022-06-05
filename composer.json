@@ -9,7 +9,7 @@
     ],
     "type": "library",
     "require": {
-		"guzzlehttp/guzzle": "7.4",
+		"guzzlehttp/guzzle": "7.4.3",
 		"php": ">=8",
         "ext-json": "*"
     },
