@@ -174,6 +174,12 @@ delete | [Link](https://api.quickfile.co.uk/d/v1_2/Purchase_Delete)
 get | [Link](https://api.quickfile.co.uk/d/v1_2/Purchase_Get)
 search | [Link](https://api.quickfile.co.uk/d/v1_2/Purchase_Search)
 
+#### PurchaseOrder
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/PurchaseOrder_Create)
+
 ### Is this library supported by QuickFile?
 
 No, this is an unofficial library
