@@ -1,13 +1,11 @@
 # QuickFile PHP SDK Library
 
-Used to connect to QuickFile Cloud Accounting Software API.
-
-**Please note**: This is a new, basic library, so there may be issues along the way.
+Wrapper for the [QuickFile](https://www.quickfile.co.uk) API.
 
 ## Requirements
 
-* PHP 5.5.0 and later
-* Guzzle HTTP 7.0 and later
+* PHP 8.0 and later
+* Guzzle HTTP 7.4 and later
 * ext-json
 
 ## Composer
@@ -58,6 +56,7 @@ or individually
 ```
 
 Each function can be accessed through it's own class, for example, for a client\search, you would use:
+
 ```php
 \QuickFile\Client::search([
     // Search Data
@@ -65,27 +64,46 @@ Each function can be accessed through it's own class, for example, for a client\
 ```
 
 And for ``invoice\create``
+
 ```php
 \QuickFile\Invoice::create([
     // Invoice Data
 ]);
 ```
 
-All header information is populated for you. You need to supply everything as part of the body.
+These all match up with the API endpoints found in the [QuickFile API documentation](https://api.quickfile.co.uk), replacing the underscore with the function name.
+
+All header information is populated for you. You need to supply everything as part of the body as per the documentation on the QuickFile site.
 
 ## FAQ
 
-**Q. What version of the API does this use?**
-A. It uses 1.2 of the JSON API
+### What version of the API does this use?
 
-**Q. What methods does it support?**
-A. Client, Invoice and Ledger functions. More to follow.
+It uses 1.2 of the JSON API
 
-**Q. Is this library supported by QuickFile?**
-A. No, this is an unofficial library
+### What methods does it support?
 
-**Q. How is the data sent to QuickFile?**
+#### Client
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Get)
+insertContacts | [Link](https://api.quickfile.co.uk/d/v1_2/Client_InsertContacts)
+login | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Login)
+newDirectDebitCollection | [Link](https://api.quickfile.co.uk/d/v1_2/Client_NewDirectDebitCollection)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Search)
+update | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Update)
+
+### Is this library supported by QuickFile?
+
+No, this is an unofficial library
+
+### How is the data sent to QuickFile?
+
 A. The data is always sent using HTTPS, using the Guzzle HTTP library. Guzzle will use cURL, but it's not required. Please see the [Guzzle Website](http://docs.guzzlephp.org/en/latest/overview.html) for information.
 
-**Q. I've found a bug, where do I report it?**
+### I've found a bug, where do I report it?
+
 A. If it's a security bug relating to the API, you can post it to the [QuickFile forum](https://community.quickfile.co.uk). If it's a bug with the library, please open an issue. If it's a security issue, please contact us through [our website](https://roseblade.media) before posting it publicly.
