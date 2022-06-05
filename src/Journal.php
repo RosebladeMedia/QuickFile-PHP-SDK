@@ -6,10 +6,10 @@ namespace QuickFile;
  * @author Roseblade Media <hello@roseblade.media>
  * @link https://roseblade.media
  */
-class Supplier
+class Journal
 {
 	/**
-	 * Create a new supplier record
+	 * Create a new journal
 	 * 
 	 * @param 	array	$body		Array for body of API call
 	 * 
@@ -17,12 +17,12 @@ class Supplier
 	 */
 	public static function create($body)
 	{
-		$returned = \QuickFile\Request::_sendData($body, '/supplier/create');
-		return $returned->Supplier_Create->Body;
+		$returned = \QuickFile\Request::_sendData($body, '/journal/create');
+		return $returned->Journal_Create->Body;
 	}
 
 	/**
-	 * Delete a supplier record
+	 * Delete an existing journal
 	 * 
 	 * @param 	array	$body		Array for body of API call
 	 * 
@@ -30,12 +30,12 @@ class Supplier
 	 */
 	public static function delete($body)
 	{
-		$returned = \QuickFile\Request::_sendData($body, '/supplier/delete');
-		return $returned->Supplier_Delete->Body;
+		$returned = \QuickFile\Request::_sendData($body, '/journal/delete');
+		return $returned->Journal_Delete->Body;
 	}
 
 	/**
-	 * Retrieve supplier and contact data
+	 * Retreive an existing journal
 	 * 
 	 * @param 	array	$body		Array for body of API call
 	 * 
@@ -43,12 +43,12 @@ class Supplier
 	 */
 	public static function get($body)
 	{
-		$returned = \QuickFile\Request::_sendData($body, '/supplier/get');
-		return $returned->Supplier_Get->Body;
+		$returned = \QuickFile\Request::_sendData($body, '/journal/get');
+		return $returned->Journal_Get->Body;
 	}
 
 	/**
-	 * Retrieve supplier records based on a set of search parameters
+	 * Search for a journal based on specific parameters
 	 * 
 	 * @param 	array	$body		Array for body of API call
 	 * 
@@ -56,7 +56,7 @@ class Supplier
 	 */
 	public static function search($body)
 	{
-		$returned = \QuickFile\Request::_sendData($body, '/supplier/search');
-		return $returned->Supplier_Search->Body;
+		$returned = \QuickFile\Request::_sendData($body, '/journal/search');
+		return $returned->Journal_Search->Body;
 	}
 }

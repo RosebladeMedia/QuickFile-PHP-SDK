@@ -8,23 +8,29 @@ namespace QuickFile;
  */
 class Ledger
 {
-    /**
-     * @return  object              Returns a list of nominal ledgers based on the output
-     */
-    public static function getNominalLedgers($output)
-    {
-        // Send request
-        $returned = \QuickFile\Request::_sendData($output, '/ledger/getnominalledgers');
-        return $returned->Ledger_GetNominalLedgers->Body;
-    }
+	/**
+	 * Query a nominal ledger based on a specific date or amount range
+	 * 
+	 * @param 	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function search($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/ledger/search');
+		return $returned->Ledger_Search->Body;
+	}
 
-    /**
-     * @return  object              Returns a list of transactions matching the criteria
-     */
-    public static function search($output)
-    {
-        // Send request
-        $returned = \QuickFile\Request::_sendData($output, '/ledger/search');
-        return $returned->Ledger_Search->Body;
-    }
+	/**
+	 * Returns information on a specified range of nominal ledgers
+	 * 
+	 * @param 	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function getNominalLedgers($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/ledger/getnominalledgers');
+		return $returned->Ledger_GetNominalLedgers->Body;
+	}
 }

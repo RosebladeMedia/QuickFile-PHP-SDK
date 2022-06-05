@@ -1,13 +1,17 @@
 # QuickFile PHP SDK Library
 
-Used to connect to QuickFile Cloud Accounting Software API.
+![GitHub](https://img.shields.io/github/license/roseblademedia/quickfile-php-sdk?style=for-the-badge)
+[![Packagist Version](https://img.shields.io/packagist/v/roseblade/quickfile-php-sdk?style=for-the-badge)](https://packagist.org/packages/roseblade/quickfile-php-sdk)
+[![GitHub issues](https://img.shields.io/github/issues/RosebladeMedia/QuickFile-PHP-SDK?style=for-the-badge)](https://github.com/RosebladeMedia/QuickFile-PHP-SDK/issues)
 
-**Please note**: This is a new, basic library, so there may be issues along the way.
+Wrapper for the [QuickFile](https://www.quickfile.co.uk) API.
+
+No validation is provided by this library.
 
 ## Requirements
 
-* PHP 5.5.0 and later
-* Guzzle HTTP 7.0 and later
+* PHP 8.0 and later
+* Guzzle HTTP 7.4 and later
 * ext-json
 
 ## Composer
@@ -58,6 +62,7 @@ or individually
 ```
 
 Each function can be accessed through it's own class, for example, for a client\search, you would use:
+
 ```php
 \QuickFile\Client::search([
     // Search Data
@@ -65,27 +70,172 @@ Each function can be accessed through it's own class, for example, for a client\
 ```
 
 And for ``invoice\create``
+
 ```php
 \QuickFile\Invoice::create([
     // Invoice Data
 ]);
 ```
 
-All header information is populated for you. You need to supply everything as part of the body.
+These all match up with the API endpoints found in the [QuickFile API documentation](https://api.quickfile.co.uk), replacing the underscore with the function name.
+
+For example:
+
+* `Client_Search` > `\QuickFile\Client::search();`
+* `Project_TagCreate` > `\QuickFile\Project::tagCreate();`
+* `Supplier_Create` > `\QuickFile\Supplier::create();`
+
+All header information is populated for you. You need to supply everything as part of the body as per the documentation on the QuickFile site.
 
 ## FAQ
 
-**Q. What version of the API does this use?**
-A. It uses 1.2 of the JSON API
+### What version of the API does this use?
 
-**Q. What methods does it support?**
-A. Client, Invoice and Ledger functions. More to follow.
+It uses 1.2 of the JSON API
 
-**Q. Is this library supported by QuickFile?**
-A. No, this is an unofficial library
+### What methods/endpoints are supported?
 
-**Q. How is the data sent to QuickFile?**
-A. The data is always sent using HTTPS, using the Guzzle HTTP library. Guzzle will use cURL, but it's not required. Please see the [Guzzle Website](http://docs.guzzlephp.org/en/latest/overview.html) for information.
+#### Bank
 
-**Q. I've found a bug, where do I report it?**
-A. If it's a security bug relating to the API, you can post it to the [QuickFile forum](https://community.quickfile.co.uk). If it's a bug with the library, please open an issue. If it's a security issue, please contact us through [our website](https://roseblade.media) before posting it publicly.
+Function | API Docs
+--|--
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Bank_Search)
+createAccount | [Link](https://api.quickfile.co.uk/d/v1_2/Bank_CreateAccount)
+createTransaction | [Link](https://api.quickfile.co.uk/d/v1_2/Bank_CreateTransaction)
+getAccounts | [Link](https://api.quickfile.co.uk/d/v1_2/Bank_GetAccounts)
+getAccountBalances | [Link](https://api.quickfile.co.uk/d/v1_2/Bank_GetAccountBalances)
+
+#### Client
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Get)
+insertContacts | [Link](https://api.quickfile.co.uk/d/v1_2/Client_InsertContacts)
+login | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Login)
+newDirectDebitCollection | [Link](https://api.quickfile.co.uk/d/v1_2/Client_NewDirectDebitCollection)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Search)
+update | [Link](https://api.quickfile.co.uk/d/v1_2/Client_Update)
+
+#### Document
+
+Function | API Docs
+--|--
+upload | [Link](https://api.quickfile.co.uk/d/v1_2/Document_Upload)
+
+#### Estimate
+
+Function | API Docs
+--|--
+acceptDecline | [Link](https://api.quickfile.co.uk/d/v1_2/Estimate_AcceptDecline)
+convertToInvoice | [Link](https://api.quickfile.co.uk/d/v1_2/Estimate_ConvertToInvoice)
+
+#### Invoice
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_Get)
+getPdf | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_GetPDF)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_Search)
+send | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_Send)
+
+#### Item (Inventory Item)
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Item_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Item_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Item_Get)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Item_Search)
+
+#### Journal
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Journal_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Journal_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Journal_Get)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Journal_Search)
+
+#### Ledger
+
+Function | API Docs
+--|--
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Ledgers_Search)
+getNominalLedgers | [Link](https://api.quickfile.co.uk/d/v1_2/Ledgers_GetNominalLedgers)
+
+#### Payment
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_Get)
+getPayMethods | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_GetPayMethods)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Payment_Search)
+
+#### Project
+
+Function | API Docs
+--|--
+tagCreate | [Link](https://api.quickfile.co.uk/d/v1_2/Project_TagCreate)
+tagDelete | [Link](https://api.quickfile.co.uk/d/v1_2/Project_TagDelete)
+tagSearch | [Link](https://api.quickfile.co.uk/d/v1_2/Project_TagSearch)
+
+#### Purchase
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Purchase_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Purchase_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Purchase_Get)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Purchase_Search)
+
+#### PurchaseOrder
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/PurchaseOrder_Create)
+
+#### Report
+
+Function | API Docs
+--|--
+ageing | [Link](https://api.quickfile.co.uk/d/v1_2/Report_Ageing)
+balanceSheet | [Link](https://api.quickfile.co.uk/d/v1_2/Report_BalanceSheet)
+chartOfAccounts | [Link](https://api.quickfile.co.uk/d/v1_2/Report_ChartOfAccounts)
+profitAndLoss | [Link](https://api.quickfile.co.uk/d/v1_2/Report_ProfitAndLoss)
+vatObligations | [Link](https://api.quickfile.co.uk/d/v1_2/Report_VatObligations)
+subscriptions | [Link](https://api.quickfile.co.uk/d/v1_2/Report_Subscriptions)
+
+#### Supplier
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Supplier_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Supplier_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Supplier_Get)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Supplier_Search)
+
+#### System
+
+Function | API Docs
+--|--
+createNote | [Link](https://api.quickfile.co.uk/d/v1_2/System_CreateNote)
+searchEvents | [Link](https://api.quickfile.co.uk/d/v1_2/System_SearchEvents)
+getAccountDetails | [Link](https://api.quickfile.co.uk/d/v1_2/System_GetAccountDetails)
+
+### Is this library supported by QuickFile?
+
+No, this is an unofficial library
+
+### How is the data sent to QuickFile?
+
+The data is always sent using HTTPS, using the Guzzle HTTP library. Guzzle will use cURL, but it's not required. Please see the [Guzzle Website](http://docs.guzzlephp.org/en/latest/overview.html) for information.
+
+### I've found a bug, where do I report it?
+
+If it's a security bug relating to the API, you can post it to the [QuickFile forum](https://community.quickfile.co.uk). If it's a bug with the library, please open an issue. If it's a security issue, please contact us through [our website](https://roseblade.media) before posting it publicly.
