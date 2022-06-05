@@ -1,6 +1,12 @@
 # QuickFile PHP SDK Library
 
+![GitHub](https://img.shields.io/github/license/roseblademedia/quickfile-php-sdk?style=for-the-badge)
+[![Packagist Version](https://img.shields.io/packagist/v/roseblade/quickfile-php-sdk?style=for-the-badge)](https://packagist.org/packages/roseblade/quickfile-php-sdk)
+[![GitHub issues](https://img.shields.io/github/issues/RosebladeMedia/QuickFile-PHP-SDK?style=for-the-badge)](https://github.com/RosebladeMedia/QuickFile-PHP-SDK/issues)
+
 Wrapper for the [QuickFile](https://www.quickfile.co.uk) API.
+
+No validation is provided by this library.
 
 ## Requirements
 
@@ -72,6 +78,12 @@ And for ``invoice\create``
 ```
 
 These all match up with the API endpoints found in the [QuickFile API documentation](https://api.quickfile.co.uk), replacing the underscore with the function name.
+
+For example:
+
+* `Client_Search` > `\QuickFile\Client::search();`
+* `Project_TagCreate` > `\QuickFile\Project::tagCreate();`
+* `Supplier_Create` > `\QuickFile\Supplier::create();`
 
 All header information is populated for you. You need to supply everything as part of the body as per the documentation on the QuickFile site.
 
