@@ -130,6 +130,15 @@ getPdf | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_GetPDF)
 search | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_Search)
 send | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_Send)
 
+#### Item (Inventory Item)
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Item_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Item_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Item_Get)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Item_Search)
+
 ### Is this library supported by QuickFile?
 
 No, this is an unofficial library
