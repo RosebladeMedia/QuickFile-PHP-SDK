@@ -8,43 +8,55 @@ namespace QuickFile;
  */
 class Supplier
 {
-    /**
-     * @return  object              Returns a list of suppliers matching the criteria
-     */
-    public static function search($output)
-    {
-        // Send request
-        $returned = \QuickFile\Request::_sendData($output, '/supplier/search');
-        return $returned->Supplier_Search->Body;
-    }
+	/**
+	 * Create a new supplier record
+	 * 
+	 * @param 	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function create($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/supplier/create');
+		return $returned->Supplier_Create->Body;
+	}
 
-    /**
-     * @return  object              Retrieves details of a supplier based on the supplied ID
-     */
-    public static function get($output)
-    {
-        // Send request
-        $returned = \QuickFile\Request::_sendData($output, '/supplier/get');
-        return $returned->Supplier_Get->Body;
-    }
+	/**
+	 * Delete a supplier record
+	 * 
+	 * @param 	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function delete($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/supplier/delete');
+		return $returned->Supplier_Delete->Body;
+	}
 
-    /**
-     * @return  object              Returns an object with SupplierID for the new supplier
-     */
-    public static function create($output)
-    {
-        // Send request
-        $returned = \QuickFile\Request::_sendData($output, '/supplier/create');
-        return $returned->Supplier_Create->Body;
-    }
+	/**
+	 * Retrieve supplier and contact data
+	 * 
+	 * @param 	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function get($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/supplier/get');
+		return $returned->Supplier_Get->Body;
+	}
 
-    /**
-     * @return  int                 Returns object with count of deleted suppliers
-     */
-    public static function delete($output)
-    {
-        // Send request
-        $returned = \QuickFile\Request::_sendData($output, '/supplier/delete');
-        return $returned->Supplier_Delete->Body;
-    }
+	/**
+	 * Retrieve supplier records based on a set of search parameters
+	 * 
+	 * @param 	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function search($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/supplier/search');
+		return $returned->Supplier_Search->Body;
+	}
 }

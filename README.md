@@ -191,6 +191,15 @@ profitAndLoss | [Link](https://api.quickfile.co.uk/d/v1_2/Report_ProfitAndLoss)
 vatObligations | [Link](https://api.quickfile.co.uk/d/v1_2/Report_VatObligations)
 subscriptions | [Link](https://api.quickfile.co.uk/d/v1_2/Report_Subscriptions)
 
+#### Supplier
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Supplier_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Supplier_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Supplier_Get)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Supplier_Search)
+
 ### Is this library supported by QuickFile?
 
 No, this is an unofficial library
