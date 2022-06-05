@@ -112,6 +112,13 @@ Function | API Docs
 --|--
 upload | [Link](https://api.quickfile.co.uk/d/v1_2/Document_Upload)
 
+#### Estimage
+
+Function | API Docs
+--|--
+acceptDecline | [Link](https://api.quickfile.co.uk/d/v1_2/Estimate_AcceptDecline)
+convertToInvoice | [Link](https://api.quickfile.co.uk/d/v1_2/Estimate_ConvertToInvoice)
+
 ### Is this library supported by QuickFile?
 
 No, this is an unofficial library
