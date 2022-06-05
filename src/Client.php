@@ -8,73 +8,107 @@ namespace QuickFile;
  */
 class Client
 {
-    /**
-     * @return  object              Returns a list of clients matching the criteria
-     */
-    public static function search($output)
-    {
-        // Send request
-        $returned = \QuickFile\Request::_sendData($output, '/client/search');
-        return $returned->Client_Search->Body;
-    }
-
-    /**
-     * @return  object              Retrieves a client based on ID
-     */
-    public static function get($output)
-    {
-        // Send request
-        $returned = \QuickFile\Request::_sendData($output, '/client/get');
-        return $returned->Client_Get->Body;
-    }
-
-    /**
-     * @return  object              Returns object with client ID and IDs for any contacts
-     */
-    public static function create($output)
-    {
-        // Send request
-        $returned = \QuickFile\Request::_sendData($output, '/client/create');
-        return $returned->Client_Create->Body;
-    }
-
-    /**
-     * @return  object              Returns object with client ID and IDs for any contacts
-     */
-    public static function update($output)
-    {
-        // Send request
-        $returned = \QuickFile\Request::_sendData($output, '/client/update');
-        return $returned->Client_Update->Body;;
-    }
-
-    /**
-     * @return  int                 Returns count of clients deleted
-     */
-    public static function delete($output)
-    {
-        // Send request
-        $returned = \QuickFile\Request::_sendData($output, '/client/delete');
-        return $returned->Client_Delete->Body;
-	}
-	
 	/**
-     * @return  string|\Exception	Returns the GoCardless bill ID
-     */
-    public static function newDirectDebitCollection($output)
-    {
-        // Send request
-		$returned 	= \QuickFile\Request::_sendData($output, '/client/newdirectdebitcollection');
-		
-		$body 		= $returned->Client_NewDirectDebitCollection->Body;
-		
-		/** Was an error returned? */
-		if(!empty($body->Error))
-		{
-			\QuickFile\Request::setError($body->Error);
-			throw new \Exception("An error was returned by QuickFile. Please see error list for details.");
-		}
+	 * Create a new client record
+	 * 
+	 * @param 	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function create($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/client/create');
+		return $returned->Client_Create->Body;
+	}
 
-        return $body->GoCardlessBillID;
-    }
+	/**
+	 * Delete a client record
+	 * 
+	 * @param	array	$body		Array for body of API call
+	 * 
+	 * @return  object				Object containing body of response
+	 */
+	public static function delete($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/client/delete');
+		return $returned->Client_Delete->Body;
+	}
+
+	/**
+	 * Retrieve client and contact data
+	 * 
+	 * @param	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function get($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/client/get');
+		return $returned->Client_Get->Body;
+	}
+
+	/**
+	 * Create a new contact record for an existing client
+	 * 
+	 * @param	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function insertContacts($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/client/insertcontacts');
+		return $returned->Client_InsertContacts->Body;
+	}
+
+	/**
+	 * Retrieve a passwordless login URL for a client
+	 * 
+	 * @param	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function login($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/client/login');
+		return $returned->Client_Login->Body;
+	}
+
+	/**
+	 * Initiate a new Direct Debit collection request
+	 * 
+	 * @param	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function newDirectDebitCollection($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/client/newdirectdebitcollection');
+		return $returned->Client_NewDirectDebitCollection->Body;
+	}
+
+	/**
+	 * Retrieve client records based on a set of search parameters
+	 * 
+	 * @param	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function search($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/client/search');
+		return $returned->Client_Search->Body;
+	}
+
+	/**
+	 * Update an existing client record
+	 * 
+	 * @param	array	$body		Array for body of API call
+	 * 
+	 * @return  object              Object containing body of response
+	 */
+	public static function update($body)
+	{
+		$returned = \QuickFile\Request::_sendData($body, '/client/update');
+		return $returned->Client_Update->Body;
+	}
 }

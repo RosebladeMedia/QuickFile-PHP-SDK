@@ -9,8 +9,8 @@
     ],
     "type": "library",
     "require": {
-        "guzzlehttp/guzzle": "7.0",
-        "php": ">=5.5.0",
+		"guzzlehttp/guzzle": "7.4",
+		"php": ">=8",
         "ext-json": "*"
     },
     "license": "MIT",

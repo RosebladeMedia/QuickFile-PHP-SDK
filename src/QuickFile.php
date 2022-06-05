@@ -8,100 +8,102 @@ namespace QuickFile;
  */
 class QuickFile
 {
-    // @var int QuickFile Account Number
-    public static $accountNumber;
+	/**
+	 * @var int QuickFile account number
+	 */
+	public static int $accountNumber;
 
-    // @var string App ID
-    public static $applicationID;
+	/**
+	 * @var string Application ID for the API call
+	 */
+	public static string $applicationID;
 
-    // @var string API Key
-    public static $apiKey;
+	/**
+	 * @var string API Key for the QuickFile account
+	 */
+	public static string $apiKey;
 
-    // @var string Submission number generator
-    public static $submissionGenerator  = "uniqid";
+	public static string $submissionGenerator  = "uniqid";
 
-    // @var boolean Whether to verify SSL certificates or not
-    public static $verifySslCerts = false;
+	public static bool $verifySslCerts = false;
 
-    // @var string Main endpoint
-    public static $APIBase              = "https://api.quickfile.co.uk/";
+	public static string $APIBase              = "https://api.quickfile.co.uk/";
 
-    // @var string API version
-    public static $apiVersion           = "1_2";
+	public static string $apiVersion           = "1_2";
 
-    const VERSION                       = "1.1.3beta";
+	const VERSION                       = "2.0.0beta";
 
-    /**
-     * @param   int     $accountNumber QuickFile account number
-     */
-    public static function setAccountNumber($accountNumber)
-    {
-        self::$accountNumber    = $accountNumber;
-    }
+	/**
+	 * @param   int     $accountNumber QuickFile account number
+	 */
+	public static function setAccountNumber($accountNumber)
+	{
+		self::$accountNumber    = $accountNumber;
+	}
 
-    /**
-     * @return  int
-     */
-    public static function getAccountNumber()
-    {
-        return self::$accountNumber;
-    }
+	/**
+	 * @return  int
+	 */
+	public static function getAccountNumber()
+	{
+		return self::$accountNumber;
+	}
 
-    /**
-     * @param   string  $applicationID  QuickFile App ID
-     */
-    public static function setApplicationID($applicationID)
-    {
-        self::$applicationID    = $applicationID;
-    }
+	/**
+	 * @param   string  $applicationID  QuickFile App ID
+	 */
+	public static function setApplicationID($applicationID)
+	{
+		self::$applicationID    = $applicationID;
+	}
 
-    /**
-     * @return string
-     */
-    public static function getApplicationID()
-    {
-        return self::$applicationID;
-    }
+	/**
+	 * @return string
+	 */
+	public static function getApplicationID()
+	{
+		return self::$applicationID;
+	}
 
-    /**
-     * @param   string  $apiKey         Account API Key
-     */
-    public static function setAPIKey($apiKey)
-    {
-        self::$apiKey           = $apiKey;
-    }
+	/**
+	 * @param   string  $apiKey         Account API Key
+	 */
+	public static function setAPIKey($apiKey)
+	{
+		self::$apiKey           = $apiKey;
+	}
 
-    /**
-     * @return string
-     */
-    public static function getAPIKey()
-    {
-        return self::$apiKey;
-    }
+	/**
+	 * @return string
+	 */
+	public static function getAPIKey()
+	{
+		return self::$apiKey;
+	}
 
-    /**
-     * @param   string  $function       Name of the PHP function that should be used to generate a submission number
-     */
-    public static function setSubmissionGenerator($function)
-    {
-        self::$submissionGenerator  = $function;
-    }
+	/**
+	 * @param   string  $function       Name of the PHP function that should be used to generate a submission number
+	 */
+	public static function setSubmissionGenerator($function)
+	{
+		self::$submissionGenerator  = $function;
+	}
 
-    /**
-     * @return string
-     */
-    public static function getSubmissionGenerator()
-    {
-        return self::$submissionGenerator;
-    }
+	/**
+	 * @return string
+	 */
+	public static function getSubmissionGenerator()
+	{
+		return self::$submissionGenerator;
+	}
 
-    /**
-     * @param   array   $values         Array of authentication details (AccountNumber, APIKey and ApplicationID)
-     */
-    public static function config($values)
-    {   
-        self::setAccountNumber($values['AccountNumber']);
-        self::setAPIKey($values['APIKey']);
-        self::setApplicationID($values['ApplicationID']);
-    }
+	/**
+	 * @param   array   $values         Array of authentication details (AccountNumber, APIKey and ApplicationID)
+	 */
+	public static function config($values)
+	{
+		self::setAccountNumber($values['AccountNumber']);
+		self::setAPIKey($values['APIKey']);
+		self::setApplicationID($values['ApplicationID']);
+	}
 }
