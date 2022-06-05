@@ -139,6 +139,15 @@ delete | [Link](https://api.quickfile.co.uk/d/v1_2/Item_Delete)
 get | [Link](https://api.quickfile.co.uk/d/v1_2/Item_Get)
 search | [Link](https://api.quickfile.co.uk/d/v1_2/Item_Search)
 
+#### Journal
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Journal_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Journal_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Journal_Get)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Journal_Search)
+
 ### Is this library supported by QuickFile?
 
 No, this is an unofficial library
