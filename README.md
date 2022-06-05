@@ -180,6 +180,17 @@ Function | API Docs
 --|--
 create | [Link](https://api.quickfile.co.uk/d/v1_2/PurchaseOrder_Create)
 
+#### Report
+
+Function | API Docs
+--|--
+ageing | [Link](https://api.quickfile.co.uk/d/v1_2/Report_Ageing)
+balanceSheet | [Link](https://api.quickfile.co.uk/d/v1_2/Report_BalanceSheet)
+chartOfAccounts | [Link](https://api.quickfile.co.uk/d/v1_2/Report_ChartOfAccounts)
+profitAndLoss | [Link](https://api.quickfile.co.uk/d/v1_2/Report_ProfitAndLoss)
+vatObligations | [Link](https://api.quickfile.co.uk/d/v1_2/Report_VatObligations)
+subscriptions | [Link](https://api.quickfile.co.uk/d/v1_2/Report_Subscriptions)
+
 ### Is this library supported by QuickFile?
 
 No, this is an unofficial library

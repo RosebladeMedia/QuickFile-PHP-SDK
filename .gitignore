@@ -4,5 +4,5 @@
 # VSCode stores it's preferences in this directory - not needed
 /.vscode/
 
-# composer.json is the one one required, don't need the .lock file
-/composer.lock
+# Other files
+example/testing.php
