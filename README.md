@@ -112,12 +112,23 @@ Function | API Docs
 --|--
 upload | [Link](https://api.quickfile.co.uk/d/v1_2/Document_Upload)
 
-#### Estimage
+#### Estimate
 
 Function | API Docs
 --|--
 acceptDecline | [Link](https://api.quickfile.co.uk/d/v1_2/Estimate_AcceptDecline)
 convertToInvoice | [Link](https://api.quickfile.co.uk/d/v1_2/Estimate_ConvertToInvoice)
+
+#### Invoice
+
+Function | API Docs
+--|--
+create | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_Create)
+delete | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_Delete)
+get | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_Get)
+getPdf | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_GetPDF)
+search | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_Search)
+send | [Link](https://api.quickfile.co.uk/d/v1_2/Invoice_Send)
 
 ### Is this library supported by QuickFile?
 
