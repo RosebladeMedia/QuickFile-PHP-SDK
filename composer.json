@@ -1,28 +1,28 @@
 {
-    "name": "roseblade/quickfile-php-sdk",
-    "description": "PHP SDK for QuickFile Accounting Software JSON API",
-    "keywords":[
-        "quickfile",
-        "accounting",
-        "quick file",
-        "api"
-    ],
-    "type": "library",
-    "require": {
-		"guzzlehttp/guzzle": "7.4",
+	"name": "roseblade/quickfile-php-sdk",
+	"description": "PHP SDK for QuickFile Accounting Software JSON API",
+	"keywords": [
+		"quickfile",
+		"accounting",
+		"quick file",
+		"api"
+	],
+	"type": "library",
+	"require": {
+		"guzzlehttp/guzzle": "^7.4",
 		"php": ">=8",
-        "ext-json": "*"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Roseblade Media",
-            "email": "hello@roseblade.media"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "QuickFile\\": "src/"
-        }
-    }
+		"ext-json": "*"
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Roseblade Media",
+			"email": "hello@roseblade.media"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"QuickFile\\": "src/"
+		}
+	}
 }
