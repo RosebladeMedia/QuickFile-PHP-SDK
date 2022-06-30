@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.2.0beta 2022-06-30
+
+* Added support for [API Partners](https://support.quickfile.co.uk/t/api-partners/15344)
+
 ## v2.0.0beta 2022-06-05
 
 * Updated Guzzle HTTP to 7.4 due to security advisories

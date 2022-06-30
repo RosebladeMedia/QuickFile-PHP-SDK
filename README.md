@@ -40,6 +40,8 @@ Don't forget to download and install [Guzzle](https://github.com/guzzle/guzzle).
 
 ## Getting Started
 
+### QuickFile Standard API
+
 We've included an example PHP file for you to get started in ``/example/index.php``.
 
 To get started, you will need to set the API credentials, available within your QuickFile account.
@@ -86,6 +88,60 @@ For example:
 * `Supplier_Create` > `\QuickFile\Supplier::create();`
 
 All header information is populated for you. You need to supply everything as part of the body as per the documentation on the QuickFile site.
+
+### QuickFile Partner API
+
+The QuickFile Partner API allows developers to make their tools available to third parties through the QuickFile Marketplace. This involves generating an app on their account so you have the correct API endpoint access.
+
+The set up is similar to that of the individual API above:
+
+```php
+$creds  = [
+    'AccountNumber' => 6131400000,
+    'Token'         => 'ABCD1234',
+    'ProductKey'    => '00000000-AAAA-AAAA-AAAA-00AA00AA00AA',
+    'SecretKey'     => '00000000-AAAA-AAAA-AAAA-00AA00AA00AA'
+];
+\QuickFile\Partner::config($creds);
+```
+
+or individually
+
+```php
+\QuickFile\Partner::setAccountNumber($creds['AccountNumber']);
+\QuickFile\Partner::setToken($creds['Token']);
+\QuickFile\Partner::setProductKey($creds['ProductKey']);
+\QuickFile\Partner::setSecretKey($creds['SecretKey']);
+```
+
+There are several static functions within the `Partner` class that can help you streamline the process:
+
+* **authenticate()**: Returns an array of API Key and ApplicationID.
+* **setupConfig()**: Automatically sets up the QuickFile library with these variables
+
+For example, after configuring the class as above:
+
+```php
+\QuickFile\Partner::authenticate();
+
+// Or, specify the returnArray and verifyProduct
+// Example below is the default - verify the product and return a bool (rather than array)
+
+\QuickFile\Partner::authenticate(true, false);
+
+// Or be fancy with names variables
+
+\QuickFile\Partner::authenticate(returnArray: true, verifyProduct: false);
+```
+
+This can be combined with the individual API, quickly setting the config by called `setupConfig()` and then using the API as normal:
+
+```php
+\QuickFile\Partner::setupConfig();
+\QuickFile\Invoice::get([
+    'InvoiceID' => 123456
+]);
+```
 
 ## FAQ
 
@@ -239,3 +295,15 @@ The data is always sent using HTTPS, using the Guzzle HTTP library. Guzzle will 
 ### I've found a bug, where do I report it?
 
 If it's a security bug relating to the API, you can post it to the [QuickFile forum](https://community.quickfile.co.uk). If it's a bug with the library, please open an issue. If it's a security issue, please contact us through [our website](https://roseblade.media) before posting it publicly.
+
+### What is API Partners?
+
+QuickFile operates a scheme called API Partners:
+
+> As an API Partner we provide you with a framework you can use so you can tell other users about your API product
+
+Check out their [user guide](https://support.quickfile.co.uk/t/api-partners/15344) for more info.
+
+### How does the API partners work?
+
+It works by you having access to a secret key which can be combined with a user's account number and token (from the [QuickFile marketplace](https://support.quickfile.co.uk/t/app-marketplace/17571)). This generates an App ID and provides you with their API key so you can then interact with their account on their behalf.
