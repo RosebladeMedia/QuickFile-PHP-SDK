@@ -25,8 +25,6 @@ class QuickFile
 
 	public static string $submissionGenerator  = "uniqid";
 
-	public static bool $verifySslCerts = false;
-
 	public static string $APIBase              = "https://api.quickfile.co.uk/";
 
 	public static string $apiVersion           = "1_2";
