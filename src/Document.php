@@ -18,6 +18,6 @@ class Document
 	public static function upload($body)
 	{
 		$returned = \QuickFile\Request::_sendData($body, '/document/upload');
-		return $returned->Bank_Search->Body;
+		return $returned->Document_Upload->Body;
 	}
 }
