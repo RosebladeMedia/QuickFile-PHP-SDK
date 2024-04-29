@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.3.0beta 2024-04-29
+
+* Added a separate data prepare, so data can be set up and stored prior to the call being made, if required
+
 ## v2.2.0beta 2022-06-30
 
 * Added support for [API Partners](https://support.quickfile.co.uk/t/api-partners/15344)

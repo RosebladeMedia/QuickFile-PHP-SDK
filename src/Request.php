@@ -150,11 +150,13 @@ class Request
 	}
 
 	/**
-	 * @param   string  $data       The data to send to the API endpoint
-	 * @param   string  $endPoint   URL endpoint for the JSON API
-	 * @return  boolean|object      False on failure, object on success
+	 * Prepares the data for sending (e.g. setting the expected format)
+	 *
+	 * @param mixed $data
+	 * 
+	 * @return array
 	 */
-	public static function _sendData($data, $endPoint)
+	public function prepRequest(array $data): array
 	{
 		/** Generate submission code */
 		$submissionCode 	= self::_getSubmissionCode();
@@ -167,6 +169,26 @@ class Request
 			]
 		];
 
+		return $output;
+	}
+
+	/**
+	 * @param   array  	$data       The data to send to the API endpoint
+	 * @param   string  $endPoint   URL endpoint for the JSON API
+	 * @return  boolean|object      False on failure, object on success
+	 */
+	public static function _sendData(array $data, $endPoint)
+	{
+		/** We can accept $data as an array and prep the data */
+		if (is_array($data))
+		{
+			if (!isset($data['payload']['Header']))
+			{
+				$request 	= self::prepRequest($data);
+			}
+		}
+
+		/** Attempt the call */
 		try
 		{
 			/** Generate the request URL and remove any double slashes */
@@ -179,7 +201,7 @@ class Request
 			]);
 
 			$response   = $client->request('POST', $requestUrl, [
-				'json'          => $output,
+				'json'          => $request,
 				'http_errors'   => false
 			]);
 
@@ -187,7 +209,7 @@ class Request
 			$httpCode               = $response->getStatusCode();
 
 			/** Record the data for debugging (if required) */
-			self::setLastRequest($output);
+			self::setLastRequest($request);
 			self::setLastResponse((string) $response->getBody());
 
 			/** Was the call successful? */
