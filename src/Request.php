@@ -156,7 +156,7 @@ class Request
 	 * 
 	 * @return array
 	 */
-	public function prepRequest(array $data): array
+	public static function PrepRequest(array $data): array
 	{
 		/** Generate submission code */
 		$submissionCode 	= self::_getSubmissionCode();
