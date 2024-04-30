@@ -180,12 +180,13 @@ class Request
 	public static function _sendData(array $data, $endPoint)
 	{
 		/** We can accept $data as an array and prep the data */
-		if (is_array($data))
+		if (!isset($data['payload']['Header']))
 		{
-			if (!isset($data['payload']['Header']))
-			{
-				$request 	= self::prepRequest($data);
-			}
+			$request 	= self::prepRequest($data);
+		}
+		else
+		{
+			$request 	= $data;
 		}
 
 		/** Attempt the call */
